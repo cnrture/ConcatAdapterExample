@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private val allBooksAdapter by lazy { AllBooksListAdapter() }
     private val bestSellersAdapter by lazy { BestSellersListAdapter() }
 
+    //HeaderAdapter üzerinden 2 nesne oluşturuyoruz 2 başlık için
     private val allBooksHeaderAdapter by lazy { HeaderAdapter("Tüm Kitaplar") }
     private val bestSellersHeaderAdapter by lazy { HeaderAdapter("Çok Satanlar") }
 
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         allBooksAdapter.updateList(BooksData.getAllBooks())
         bestSellersAdapter.updateList(BooksData.getBestSellers())
 
+        //concatAdapter değişkenimize oluşturduğumuz adapterları gösterim sırasına göre dahil ediyoruz.
         concatAdapter = ConcatAdapter(
             bestSellersHeaderAdapter,
             bestSellersAdapter,
@@ -33,11 +35,16 @@ class MainActivity : AppCompatActivity() {
             allBooksAdapter
         )
 
+        //concatAdapter'a adapter ekleme
         //concatAdapter.addAdapter(allBooksAdapter)
+
+        //concatAdapter'a index belirterek adapter ekleme
         //concatAdapter.addAdapter(3, allBooksAdapter)
 
+        //concatAdapter'dan adapter silme
         //concatAdapter.removeAdapter(allBooksAdapter)
 
+        //Activity içerisindeki RecyclerView'a oluşturduğumuz concatAdapter'ı yerleştiriyoruz.
         binding.rvConcat.apply {
             layoutManager =
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)

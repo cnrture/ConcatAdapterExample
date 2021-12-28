@@ -25,6 +25,8 @@ class AllBooksListAdapter : RecyclerView.Adapter<AllBooksListAdapter.AllBooksLis
 
         fun bind(allBooksList: List<BookModel>) {
 
+            //Tüm Kitapları listelemek için kullandığımız RecyclerView'ı GridLayoutManager ile oluşturuyoruz.
+            //Sonrasında adapter olarak AllBooksItemAdapter'ı yerleştiriyoruz ve listemizi gönderiyoruz.
             listAllBooksBinding.rvAllBooks.apply {
 
                 layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
@@ -36,11 +38,11 @@ class AllBooksListAdapter : RecyclerView.Adapter<AllBooksListAdapter.AllBooksLis
         }
     }
 
+    //AllBooksItemAdapter ile doldurduğumuz RecyclerView burası ve bu ReyclerView 1 kere yazdırılacak.
     override fun getItemCount(): Int = 1
 
     fun updateList(list: List<BookModel>) {
         allBooksList.clear()
         allBooksList.addAll(list)
-        notifyItemRangeChanged(0, allBooksList.size - 1)
     }
 }

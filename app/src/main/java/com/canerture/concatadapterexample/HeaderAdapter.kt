@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.canerture.concatadapterexample.databinding.ItemHeaderBinding
 
+//Her başlık için bu adapterı kullanacağız. Bu sebeple argüman olarak headerText istiyoruz.
 class HeaderAdapter(private val headerText: String) : RecyclerView.Adapter<HeaderAdapter.HeaderDesign>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeaderDesign {

@@ -25,6 +25,8 @@ class BestSellersListAdapter : RecyclerView.Adapter<BestSellersListAdapter.BestS
 
         fun bind(bestSellersList: List<BookModel>) {
 
+            //Çok Satanları listelemek için kullandığımız RecyclerView'ı Horizontal RecyclerView ile oluşturuyoruz.
+            //Sonrasında adapter olarak BestSellersItemAdapter'ı yerleştiriyoruz ve listemizi gönderiyoruz.
             listBestSellerBinding.rvBestSellers.apply {
 
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -36,11 +38,11 @@ class BestSellersListAdapter : RecyclerView.Adapter<BestSellersListAdapter.BestS
         }
     }
 
+    //BestSellersItemAdaper ile doldurduğumuz RecyclerView burası ve bu ReyclerView 1 kere yazdırılacak.
     override fun getItemCount(): Int = 1
 
     fun updateList(list: List<BookModel>) {
         bestSellersList.clear()
         bestSellersList.addAll(list)
-        notifyItemRangeChanged(0, bestSellersList.size - 1)
     }
 }
